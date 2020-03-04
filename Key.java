@@ -1,10 +1,11 @@
+package mst;
 
 class Key implements Comparable<Key> {
 
     int vertexIndex;
-    int key;
+    double key;
 
-    public Key(int index, int key) {
+    public Key(int index, double key) {
         vertexIndex = index;
         this.key = key;
     }
@@ -17,5 +18,11 @@ class Key implements Comparable<Key> {
         } else {
             return 0;
         }
+   }
+
+    public boolean isGreaterThan(Key k){
+        
+        if(this.key<k.key) return false;
+        return true;
     }
 }
