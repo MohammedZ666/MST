@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author 18201214
  */
 
-public class MST {
+public class MST{
 
     /**
      * @param args the command line arguments
@@ -48,19 +48,17 @@ public class MST {
     public static int[] MST(int[][]G){    
          int[] parent = new int [G[0].length];
          PriorityQueue<Key> q = new PriorityQueue<>();
-        for(int i = 0; i<G[0].length;i++){
-            q.add(new Key(i,Double.POSITIVE_INFINITY));
-        }
+        q.add(new Key(0,0));
+        
         while(!q.isEmpty()){
             Key u = q.remove();
             for(int v = 0; v<G[u.vertexIndex].length;v++){
                 if(G[u.vertexIndex][v]>0){
-                Key k = new Key(v,G[u.vertexIndex][v]);
-                if(u.isGreaterThan(k)){
-                    u.key = k.key;                   
-                    parent[u.vertexIndex] = v;
+                    Key k = new Key(v,G[u.vertexIndex][v]);
+                    if(q.contains(v)){
+                        
+                    }   
                 }
-              }
            }           
         }
     return parent;    
